@@ -48,7 +48,7 @@ Why do we actually need a build tool for frontend projects? Isn't this for compi
 
 * Source maps?
 
-* concatenating, Minifying, uglifying, inlining static assets
+* concatenating, Minifying, uglifying, inlining static assets. **SPEED IS A FEATURE**
 
 * cache handling/breaking (revvying)
  
@@ -366,6 +366,8 @@ NODE_ENV=production webpack -p --config webpack.prod.config.js
 
 # Moving to production
 
+Remove console.log
+
 ```javascript
 {
         test: /.jsx?$/, //regex getting js or jsx files
@@ -374,10 +376,6 @@ NODE_ENV=production webpack -p --config webpack.prod.config.js
 
           loader: 'babel-loader',
 
-          query: {
-            presets: ['es2015', 'react'],
-            compact:false
-          }
         },
           {
             loader: 'strip-loader',// cleans debugging perhaps not needed since can be done by uglify?
@@ -392,6 +390,8 @@ NODE_ENV=production webpack -p --config webpack.prod.config.js
 ---
 
 # Moving to production
+
+Production orientated plugins
 
 ```javascript
 plugins: [
