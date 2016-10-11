@@ -5,6 +5,7 @@ class: center, middle
 ###Abusing the hot module bundler as a build tool
 
 [live presentation](https://alonisser.github.io/Intro-webpack-pywebIL) <br/>
+[Following the example references here in a github repo](https://github.com/alonisser/webpack-reference-example)<br/>
 [twitter](alonisser@twitter.com), [medium](https://medium.com/@alonisser/), 
 [Sad FrontEnd IL](http://sadfrontendil.tumblr.com/)
 #####you can also read my political blog: [דגל אדום](degeladom@wordpress.com)
@@ -511,5 +512,10 @@ class: center, middle
 
 # Open source rocks!
 ## Thanks for listening!
+
+[live presentation](https://alonisser.github.io/Intro-webpack-pywebIL) <br/>
+[Following the example references here in a github repo](https://github.com/alonisser/webpack-reference-example)<br/>
+[twitter](alonisser@twitter.com), [medium](https://medium.com/@alonisser/), 
+[Sad FrontEnd IL](http://sadfrontendil.tumblr.com/)
 
 ---
