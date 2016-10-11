@@ -169,7 +169,7 @@ console.log(someTemplate) // "<html><body><h1>Hello</h1></body></html>"
 * loaders can have extra configuration with query params. 
 
 ```javascript
-'babel-loader?presets[]=babel,presets[]=es2015'
+'babel-loader?presets[]=react,presets[]=es2015'
 ```
 * Chainable, The final loader is expected to return JavaScript.
 
@@ -233,7 +233,7 @@ Also not complicated to write one..
 
 # webpack + babel
 
-* Babel: previously 6to5. Hottest transpiler currently.
+* [Babel](https://babeljs.io/): previously 6to5. Probably the most common transpiler currently.
  
 * presets are not a webpack feature! It's babel
 
@@ -256,7 +256,33 @@ Also not complicated to write one..
 
 * Here we use the babel presets for handling react JSX and es2015 syntax (ES6 :) ) 
 
-* Other presets with more functionality are available
+* Other [Babel](https://babeljs.io/) presets with more functionality are available
+
+---
+
+# Adding a linter
+
+* [ESLint](http://eslint.org/): Modern, ES6 ready, js linter (jslint/jshint for 2016)
+ 
+* Very configurable (out of the scope for this talk)
+
+* We can add it to the loader pipeline, to run before Babel transpiles the code.
+
+```javascript
+
+{
+    
+    loader: 'babel-loader!eslint-loader',
+    // later on in the config point in to It's configuration
+    eslint: {
+        configFile: '.eslintrc.js'
+      },
+     
+}
+```
+
+* Needs some more (easy) configuration to run.
+* You can set it to fail the build, or just warn
 
 ---
 
@@ -264,7 +290,7 @@ Also not complicated to write one..
 
 * I don't like having  react in the same bundle as my code
 
-* I don't need the transpilers to work it, and It can be probably cached much much longer.
+* And It can be probably cached much much longer (So perhaps no hash in generated filename).
 
 ```javascript
 {
@@ -285,7 +311,8 @@ plugins: [
 ```javascript
 img.src = require('./path/to/image.png')
 
-\\and in config
+//and in config
+
 
 {
         test: /\.(jpe?g|gif|png|svg)$/i,
@@ -329,25 +356,26 @@ The css example allows to examine a loader pipeline.
 ```javascript
 "style!css!postcss!sass"
 ```
-* Lets add another loader into they css handling pipeline
+* Lets add another loader into they css handling pipeline.
 
-* postcss pre/post processors would take over and transform it, outputting changed css
+* [Postcss](http://postcss.org/) is a self proclaimed **A tool for transforming CSS with JavaScript**
 
-* Here we use autoprefixer and cssnano, lots and lots more
+* postcss pre/post processors would process our css and transform it, outputting changed css.
 
-* Yes also works with a standalone cli, gulp, grunt, you name it. 
+* Here we use autoprefixer and cssnano (Added in the production config), lots and lots of other [postcss plugins](http://postcss.parts/). 
+
+* Yes, Postcss also works with a standalone cli, gulp, grunt, you name it. 
  
 ---
 
 # Hot module reload
 
-* A big selling point, lets demo it
+* A big selling point (IN DEV MODE), lets demo it, I'll uncomment a css line. Let's see what happens
 
 * Tries to avoid reloading the page, just sends a diff json and replaces only what needs replacing
 
-* Think fixing state sensitive forms, while already filled, without losing info.
+* Think fixing state sensitive forms (Perhaps in an open modal in the end of a user journey), while already filled, without losing info/state.
  
-* Lets demo it
  
 ---
 # Moving to production
