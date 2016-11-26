@@ -104,7 +104,7 @@ What kind of modules js has:
 ---
 # Concepts - moduels
 
-.img-container[![](http://imgs.xkcd.com/comics/standards.png)]
+.img-container[![](https://imgs.xkcd.com/comics/standards.png)]
 
 ---
 # Modules
